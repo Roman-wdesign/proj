@@ -1,0 +1,28 @@
+@import "vars";
+@import "fonts";
+@import "mixins";
+@import "./modules/form.scss";
+@import "./modules/product.scss";
+
+html {
+  font-size: 62.5%;
+}
+
+.container {
+text-align: left;
+  padding: 0 2rem 0 2rem;
+}
+.core{
+  flex-direction: row;
+  justify-content: space-between;
+  display: flex;
+  background-color: antiquewhite;
+}
+
+h1 {
+ @include ff_Sans_Semi;
+}
+h2{
+@include ff_Sans_600;
+}
+
