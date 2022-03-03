@@ -1,16 +1,24 @@
 <template>
   <div class="container">
-    <h1>Добавление товара</h1>
-    <div class="core"><mcv-form/>
-      <mcv-product-list/></div>
+    <div class="header">
+      <h1>Добавление товара</h1>
+      <mcv-dropdown/>
+    </div>
+
+    <div class="core">
+      <mcv-form/>
+      <mcv-product-list/>
+    </div>
   </div>
 </template>
 
 <script>
 import McvForm from "@/components/Form";
 import McvProductList from "@/components/ProductList";
+import McvDropdown from "@/components/Dropdown";
+
 export default {
   name: 'Home',
-  components: {McvProductList, McvForm}
+  components: {McvDropdown, McvProductList, McvForm}
 }
 </script>

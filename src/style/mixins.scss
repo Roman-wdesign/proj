@@ -2,7 +2,7 @@
   font: {
     color: $font_clr_1;
     family: $font_Sans_P_Semi;
-    size: 2rem;
+    size: 2.2rem;
     weight: 600;
   }
   line-height: 35.2px;
@@ -41,7 +41,7 @@
   font: {
     color: $clr-disabled;
     family: $font_Sans_P_Regular;
-    size: 0.75rem;
+    size: 1.4rem;
     weight: 400;
   }
   line-height: 15.08px;
@@ -51,8 +51,14 @@
   font: {
     color: $font_clr_2;
     family: $font_Sans_P_Regular;
-    size: 0.625rem;
+    size: 1.2rem;
     weight: 400;
   }
   line-height: 12.57px;
+}
+
+@mixin input_style{
+  background: #FFFEFB;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
 }

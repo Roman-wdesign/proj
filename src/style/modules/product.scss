@@ -1,4 +1,8 @@
-.product{
+.product {
+
+  width: 332px;
+  height: 423px;
+
   -webkit-box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.2);
   box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.2);
@@ -11,26 +15,27 @@
     -moz-box-shadow: 0px 7px 8px 4px rgba(34, 60, 80, 0.2);
     box-shadow: 0px 7px 8px 4px rgba(34, 60, 80, 0.2);
     cursor: pointer
-  };
+  }
+
   border-radius: 4px;
-  width: 332px;
-  height: 423px;
-  margin: 8px;
-
-
+  margin: 0 8px 16px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 
-
 .about {
+
   display: flex;
   flex-direction: column;
   text-align: left;
-  justify-content: center;
-  padding: 0 16px 24px 16px;
-  &__img{
+
+  padding: 0 8px 16px 8px;
+
+  &__img {
     padding-bottom: 16px;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
   }
@@ -39,19 +44,27 @@
     @include ff_Sans_Semi;
   }
 
-  &__description{
+  &__description {
     @include ff_Sans_400;
   }
 
-  &__price{
-@include ff_Sans_price;
+  &__price {
+    @include ff_Sans_price;
   }
 }
 
 
-.product-list{
-  width: 100%; // меняет кол-во эл-ов в ряду
-  display:flex;
+.product-list {
+  margin-left: 40px;
+  display: flex;
+  //justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.prod_main {
+  &:hover .wrap {
+    display: block;
+  }
+  position: relative;
 }
