@@ -147,7 +147,7 @@ export default {
   created() {
     this.realNumber = this.value || ""
   },
-  props: ['title', 'value']
+
 }
 </script>
 
