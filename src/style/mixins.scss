@@ -62,3 +62,12 @@
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
 }
+
+@mixin error-mess{
+  font: {
+    family: $font_Sans_P_Regular;
+    size: 1.2rem;
+    weight: 400;
+  }
+  line-height: 10.06px;
+}

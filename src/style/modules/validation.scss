@@ -1,0 +1,8 @@
+.error_mess{
+color:$clr-form-error;
+@include error-mess;
+}
+
+.error_input{
+  border: 1px solid $clr-form-error;
+}

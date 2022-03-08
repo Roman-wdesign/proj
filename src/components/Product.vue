@@ -1,5 +1,6 @@
 <template>
   <div class="prod_main">
+
     <div class="wrap">
       <div class="delete">
 
@@ -9,6 +10,7 @@
 
       </div>
     </div>
+
     <div class="product">
       <div class="about__img"><img src="@/assets/img/photo.png" height="200" width="100%"></div>
       <div class="about">
