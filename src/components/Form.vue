@@ -77,14 +77,20 @@
           </div>
 
           <input
-
+              :class="{error_input: error.length}"
               :type="indicatorChange ? 'number' : 'text'"
               v-model="modelNumber"
               step="1" min="1" max="100000000"
               placeholder=" Введите цену"
               @focus="indicatorChange = true"
               @blur="indicatorChange = false"
-              class="input">
+              class="input"
+          >
+          <p
+              :class="{error_mess: error.length}"
+              v-if="error.length">
+            Поле является обязательным
+          </p>
         </div>
 
         <button class="btn_form" type="submit">Добавить товар</button>
