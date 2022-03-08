@@ -77,4 +77,10 @@
     transition-duration: .5s;
     transition-delay: .1s;
   }
+  .btn_accepted{
+    background: $clr-accept-btn;
+    color: #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+  }
 }

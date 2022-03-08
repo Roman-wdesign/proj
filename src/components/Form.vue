@@ -17,13 +17,13 @@
 
 
           <input
-              :class="{error_input: error.length}"
+              :class="{error_input: !this.username}"
               type="text" v-model="username"
               placeholder=" Введите наименование товара"
               class="input">
           <p
               :class="{error_mess: error.length}"
-              v-if="error.length">
+              v-if="!this.username">
             Поле является обязательным
           </p>
         </div>
@@ -36,7 +36,7 @@
           </div>
 
           <textarea
-              :class="{error_input: error.length}"
+              :class="{error_input: !this.textarea}"
               class=textarea
               v-model="textarea"
               placeholder=" Введите описание товара"
@@ -44,7 +44,7 @@
           ></textarea>
           <p
               :class="{error_mess: error.length}"
-              v-if="error.length">
+              v-if="!this.textarea">
             Поле является обязательным
           </p>
         </div>
@@ -57,14 +57,16 @@
           </div>
 
           <input
-              :class="{error_input: error.length}"
+
+              required="true"
+              :class="{error_input: !this.url}"
               type="url"
               v-model="url"
               placeholder="Введите ссылку"
               class="input">
           <p
               :class="{error_mess: error.length}"
-              v-if="error.length">
+              v-if="!this.url">
             Поле является обязательным
           </p>
         </div>
@@ -77,7 +79,7 @@
           </div>
 
           <input
-              :class="{error_input: error.length}"
+              :class="{error_input: !modelNumber}"
               :type="indicatorChange ? 'number' : 'text'"
               v-model="modelNumber"
               step="1" min="1" max="100000000"
@@ -88,15 +90,16 @@
           >
           <p
               :class="{error_mess: error.length}"
-              v-if="error.length">
+              v-if="!modelNumber">
             Поле является обязательным
           </p>
         </div>
 
-        <button class="btn_form" type="submit">Добавить товар</button>
+        <button
+            class="btn_form"
+            type="submit"
+        >Добавить товар</button>
       </div>
-
-
     </form>
   </div>
 </template>
@@ -108,32 +111,41 @@ export default {
 
   data: () => ({
     error: [],
-    username: null,
-    textarea: null,
-    url: null,
-    number: null,
+    username: "",
+    textarea: "",
+    url: "https://google.com/image.jpg",
+    number: "",
     realNumber: null,
     indicatorChange: false,
   }),
 
   methods: {
     submitForm() {
-      if (this.username) {
-        return true
-      }
+
       this.error = [];
       if (!this.username) {
-        this.error.push('Поле является обязательным');
+       return this.error.push('Поле является обязательным');
 
-      } else if (!this.textarea) {
+      }
+      if (!this.textarea) {
         return this.error.push('Поле является обязательным');
 
-      } else {
+      }
+      if (!this.url) {
+        return this.error.push('Поле является обязательным');
+
+      }
+      if (!this.number) {
+        return this.error.push('Поле является обязательным');
+
+      }
+      if (!this.error.length) {
         return true
       }
     },
   },
   computed: {
+
     modelNumber: {
       get() {
         return this.indicatorChange ? this.realNumber : this.realNumber.toLocaleString()
