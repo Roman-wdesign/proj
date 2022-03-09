@@ -71,16 +71,20 @@
   border-radius: 10px;
   cursor: pointer;
 
-  &:hover {
-    background: $clr-disabled;
-    color: $clr-disabled-btn;
-    transition-duration: .5s;
-    transition-delay: .1s;
-  }
-  .btn_accepted{
+  &.btn_accepted{
+    width: 284px;
+    height: 36px;
     background: $clr-accept-btn;
     color: #ffffff;
     border-radius: 10px;
     cursor: pointer;
   }
+
+  //&:hover {
+  //  background: $clr-disabled;
+  //  color: $clr-disabled-btn;
+  //  transition-duration: .5s;
+  //  transition-delay: .1s;
+  //}
+
 }

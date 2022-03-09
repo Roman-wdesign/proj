@@ -2,8 +2,7 @@
   <div class="form">
     <form
         id="app"
-        @submit.prevent="submitForm"
-        novalidate
+        @submit.prevent="submitForm()"
     >
       <div class="prod-form">
 
@@ -17,88 +16,88 @@
 
 
           <input
-              :class="{error_input: !this.username}"
+              :class="{error_input: isUserNameError}"
               type="text" v-model="username"
               placeholder=" Введите наименование товара"
               class="input">
-          <p
-              :class="{error_mess: error.length}"
-              v-if="!this.username">
-            Поле является обязательным
-          </p>
+                    <p
+                        :class="{error_mess: isUserNameError}"
+                        v-if="isUserNameError">
+                      Поле является обязательным
+                    </p>
         </div>
 
-        <div class="prod-form__block">
+                <div class="prod-form__block">
 
-          <div class="prod-form__label-block">
-            <label class="label">Описание товара</label>
-            <div class="circle"></div>
-          </div>
+                  <div class="prod-form__label-block">
+                    <label class="label">Описание товара</label>
+                    <div class="circle"></div>
+                  </div>
 
-          <textarea
-              :class="{error_input: !this.textarea}"
-              class=textarea
-              v-model="textarea"
-              placeholder=" Введите описание товара"
+                  <textarea
+                      :class="{error_input: isTextareaError}"
+                      class=textarea
+                      v-model="textarea"
+                      placeholder=" Введите описание товара"></textarea>
+                  <p
+                      :class="{error_mess: isTextareaError}"
+                      v-if="isTextareaError">
+                    Поле является обязательным
+                  </p>
+                </div>
 
-          ></textarea>
-          <p
-              :class="{error_mess: error.length}"
-              v-if="!this.textarea">
-            Поле является обязательным
-          </p>
-        </div>
+        <!--        <div class="prod-form__block">-->
 
-        <div class="prod-form__block">
+        <!--          <div class="prod-form__label-block">-->
+        <!--            <label class="label">Ссылка на изображение товара</label>-->
+        <!--            <div class="circle"></div>-->
+        <!--          </div>-->
 
-          <div class="prod-form__label-block">
-            <label class="label">Ссылка на изображение товара</label>
-            <div class="circle"></div>
-          </div>
+        <!--          <input-->
 
-          <input
+        <!--              required="true"-->
+        <!--              :class="{error_input: isUrlError}"-->
+        <!--              type="url"-->
+        <!--              v-model="url"-->
+        <!--              placeholder="Введите ссылку"-->
+        <!--              class="input">-->
+        <!--          <p-->
+        <!--              :class="{error_mess: isUrlError}"-->
+        <!--              v-if="isUrlError">-->
+        <!--            Поле является обязательным-->
+        <!--          </p>-->
+        <!--        </div>-->
 
-              required="true"
-              :class="{error_input: !this.url}"
-              type="url"
-              v-model="url"
-              placeholder="Введите ссылку"
-              class="input">
-          <p
-              :class="{error_mess: error.length}"
-              v-if="!this.url">
-            Поле является обязательным
-          </p>
-        </div>
+        <!--        <div class="prod-form__block">-->
 
-        <div class="prod-form__block">
+        <!--          <div class="prod-form__label-block">-->
+        <!--            <label class="label">Цена товара</label>-->
+        <!--            <div class="circle"></div>-->
+        <!--          </div>-->
 
-          <div class="prod-form__label-block">
-            <label class="label">Цена товара</label>
-            <div class="circle"></div>
-          </div>
-
-          <input
-              :class="{error_input: !modelNumber}"
-              :type="indicatorChange ? 'number' : 'text'"
-              v-model="modelNumber"
-              step="1" min="1" max="100000000"
-              placeholder=" Введите цену"
-              @focus="indicatorChange = true"
-              @blur="indicatorChange = false"
-              class="input"
-          >
-          <p
-              :class="{error_mess: error.length}"
-              v-if="!modelNumber">
-            Поле является обязательным
-          </p>
-        </div>
+        <!--          <input-->
+        <!--              :class="{error_input: !modelNumber}"-->
+        <!--              :type="indicatorChange ? 'number' : 'text'"-->
+        <!--              v-model="modelNumber"-->
+        <!--              step="1" min="1" max="100000000"-->
+        <!--              placeholder=" Введите цену"-->
+        <!--              @focus="indicatorChange = true"-->
+        <!--              @blur="indicatorChange = false"-->
+        <!--              class="input"-->
+        <!--          >-->
+        <!--          <p-->
+        <!--              :class="{error_mess: isNumberError}"-->
+        <!--              v-if="isNumberError">-->
+        <!--            Поле является обязательным-->
+        <!--          </p>-->
+        <!--        </div>-->
 
         <button
+            :disabled="!submitForm"
             class="btn_form"
             type="submit"
-        >Добавить товар</button>
+        >Добавить товар
+        </button>
       </div>
     </form>
   </div>
@@ -111,10 +110,10 @@ export default {
 
   data: () => ({
     error: [],
-    username: "",
-    textarea: "",
+    username: null,
+    textarea: null,
     url: "https://google.com/image.jpg",
-    number: "",
+    number: null,
     realNumber: null,
     indicatorChange: false,
   }),
@@ -123,28 +122,37 @@ export default {
     submitForm() {
 
       this.error = [];
-      if (!this.username) {
-       return this.error.push('Поле является обязательным');
-
-      }
-      if (!this.textarea) {
+      // if (this.username || this.textarea || this.url || this.number) {
+      //   return this.error.push('Поле является обязательным');
+      // }
+      if (this.isUserNameError) {
         return this.error.push('Поле является обязательным');
+      } else {
+        return alert("Форма отправлена");
+      }
 
-      }
-      if (!this.url) {
-        return this.error.push('Поле является обязательным');
-
-      }
-      if (!this.number) {
-        return this.error.push('Поле является обязательным');
-
-      }
-      if (!this.error.length) {
-        return true
-      }
     },
+    // submitForm() {
+    //   if (this.checkForm) {
+    //     return;
+    //   }
+    //   alert("Форма отправлена");
+    // },
+
   },
   computed: {
+    isUserNameError() {
+      return !this.username
+    },
+    isTextareaError() {
+      return !this.textarea
+    },
+    // isUrlError() {
+    //   return !this.url
+    // },
+    // isNumberError() {
+    //   return !this.modelNumber
+    // },
 
     modelNumber: {
       get() {
