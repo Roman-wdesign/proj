@@ -23,7 +23,7 @@
                     <p
                         :class="{error_mess: isUserNameError}"
                         v-if="isUserNameError">
-                      Поле является обязательным
+                        Поле является обязательным
                     </p>
         </div>
 
@@ -46,51 +46,49 @@
                   </p>
                 </div>
 
-        <!--        <div class="prod-form__block">-->
+                <div class="prod-form__block">
 
-        <!--          <div class="prod-form__label-block">-->
-        <!--            <label class="label">Ссылка на изображение товара</label>-->
-        <!--            <div class="circle"></div>-->
-        <!--          </div>-->
+                  <div class="prod-form__label-block">
+                    <label class="label">Ссылка на изображение товара</label>
+                    <div class="circle"></div>
+                  </div>
 
-        <!--          <input-->
+                  <input
+                      :class="{error_input: isUrlError}"
+                      type="url"
+                      v-model="url"
+                      placeholder="Введите ссылку"
+                      class="input">
+                  <p
+                      :class="{error_mess: isUrlError}"
+                      v-if="isUrlError">
+                      Поле является обязательным
+                  </p>
+                </div>
 
-        <!--              required="true"-->
-        <!--              :class="{error_input: isUrlError}"-->
-        <!--              type="url"-->
-        <!--              v-model="url"-->
-        <!--              placeholder="Введите ссылку"-->
-        <!--              class="input">-->
-        <!--          <p-->
-        <!--              :class="{error_mess: isUrlError}"-->
-        <!--              v-if="isUrlError">-->
-        <!--            Поле является обязательным-->
-        <!--          </p>-->
-        <!--        </div>-->
+                <div class="prod-form__block">
 
-        <!--        <div class="prod-form__block">-->
+                  <div class="prod-form__label-block">
+                    <label class="label">Цена товара</label>
+                    <div class="circle"></div>
+                  </div>
 
-        <!--          <div class="prod-form__label-block">-->
-        <!--            <label class="label">Цена товара</label>-->
-        <!--            <div class="circle"></div>-->
-        <!--          </div>-->
-
-        <!--          <input-->
-        <!--              :class="{error_input: !modelNumber}"-->
-        <!--              :type="indicatorChange ? 'number' : 'text'"-->
-        <!--              v-model="modelNumber"-->
-        <!--              step="1" min="1" max="100000000"-->
-        <!--              placeholder=" Введите цену"-->
-        <!--              @focus="indicatorChange = true"-->
-        <!--              @blur="indicatorChange = false"-->
-        <!--              class="input"-->
-        <!--          >-->
-        <!--          <p-->
-        <!--              :class="{error_mess: isNumberError}"-->
-        <!--              v-if="isNumberError">-->
-        <!--            Поле является обязательным-->
-        <!--          </p>-->
-        <!--        </div>-->
+                  <input
+                      :class="{error_input: isNumberError}"
+                      :type="indicatorChange ? 'number' : 'text'"
+                      v-model="modelNumber"
+                      step="1" min="1" max="100000000"
+                      placeholder=" Введите цену"
+                      @focus="indicatorChange = true"
+                      @blur="indicatorChange = false"
+                      class="input"
+                  >
+                  <p
+                      :class="{error_mess: isNumberError}"
+                      v-if="isNumberError">
+                    Поле является обязательным
+                  </p>
+                </div>
 
         <button
             :disabled="!submitForm"
@@ -122,10 +120,7 @@ export default {
     submitForm() {
 
       this.error = [];
-      // if (this.username || this.textarea || this.url || this.number) {
-      //   return this.error.push('Поле является обязательным');
-      // }
-      if (this.isUserNameError) {
+      if (this.isUserNameError || this.isTextareaError || this.isUrlError || this.isNumberError) {
         return this.error.push('Поле является обязательным');
       } else {
         return alert("Форма отправлена");
@@ -147,12 +142,12 @@ export default {
     isTextareaError() {
       return !this.textarea
     },
-    // isUrlError() {
-    //   return !this.url
-    // },
-    // isNumberError() {
-    //   return !this.modelNumber
-    // },
+    isUrlError() {
+      return !this.url
+    },
+    isNumberError() {
+      return !this.modelNumber
+    },
 
     modelNumber: {
       get() {
