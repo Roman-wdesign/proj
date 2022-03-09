@@ -71,14 +71,7 @@
   border-radius: 10px;
   cursor: pointer;
 
-  &.btn_accepted{
-    width: 284px;
-    height: 36px;
-    background: $clr-accept-btn;
-    color: #ffffff;
-    border-radius: 10px;
-    cursor: pointer;
-  }
+
 
   //&:hover {
   //  background: $clr-disabled;
@@ -87,4 +80,18 @@
   //  transition-delay: .1s;
   //}
 
+}
+.btn_accepted{
+  //&:hover{
+  //  transition-duration: .2s;
+  //  transition-delay: .1s;
+  //  background: #76d03a
+  //}
+  width: 284px;
+  height: 36px;
+  background: $clr-accept-btn;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
