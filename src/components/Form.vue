@@ -1,6 +1,7 @@
 <template>
   <div class="form">
     <form
+        ref="form_1"
         id="app"
         @submit.prevent="isDisabled"
         novalidate
@@ -126,6 +127,7 @@ export default {
 
   methods: {
     submitForm() {
+      this.$refs.form_1.reset();
       return alert("Форма отправлена");
     }
   },

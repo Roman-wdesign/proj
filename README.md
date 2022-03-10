@@ -26,4 +26,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 #### Full form Vue validate
    + separate thousandths with spaces in input
    + changing submit button color, after user enter all fields
-   + Regex for Url
+   + Regex for Url input
+   + Form reset

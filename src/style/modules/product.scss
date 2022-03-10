@@ -1,19 +1,12 @@
 .product {
-
+  @include prod_shadow;
   width: 332px;
   height: 423px;
-
-  -webkit-box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.2);
-  -moz-box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.2);
-  box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.2);
 
   &:hover {
     transition-duration: .2s;
     transition-delay: .1s;
-
-    -webkit-box-shadow: 0px 7px 8px 4px rgba(34, 60, 80, 0.2);
-    -moz-box-shadow: 0px 7px 8px 4px rgba(34, 60, 80, 0.2);
-    box-shadow: 0px 7px 8px 4px rgba(34, 60, 80, 0.2);
+    @include prod_shadow_hover;
     cursor: pointer
   }
 
@@ -66,5 +59,6 @@
   &:hover .wrap {
     display: block;
   }
+
   position: relative;
 }
