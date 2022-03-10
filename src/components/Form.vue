@@ -3,6 +3,7 @@
     <form
         id="app"
         @submit.prevent="isDisabled"
+        novalidate
     >
       <div class="prod-form">
 
@@ -54,14 +55,14 @@
           </div>
 
           <input
-              :class="{error_input: !this.url}"
+              :class="{error_input: !this.isValidUrl}"
               type="url"
               v-model="url"
               placeholder="Введите ссылку"
               class="input">
           <p
-              :class="{error_mess: !this.url}"
-              v-if="!this.url">
+              :class="{error_mess: !this.isValidUrl}"
+              v-if="!this.isValidUrl">
             Поле является обязательным
           </p>
         </div>
@@ -95,7 +96,7 @@
             :disabled='isDisabled'
             class="btn_form"
             type="submit"
-            v-on:click="submitForm()"
+            @click="submitForm()"
         >Добавить товар
         </button>
       </div>
@@ -105,15 +106,19 @@
 
 <script>
 
+// const regexSome = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/;
+const regex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
+
+const regexUrl = new RegExp(regex);
+
+
 export default {
   name: "McvForm",
 
   data: () => ({
-
-    error: [],
     username: null,
     textarea: null,
-    url: "https://google.com/image.jpg",
+    url: null,
     number: null,
     realNumber: null,
     indicatorChange: false,
@@ -121,21 +126,24 @@ export default {
 
   methods: {
     submitForm() {
-
-      this.error = [];
-      if (!this.isDisabled ) {
-
-        return alert("Форма отправлена");
-      }
-    },
+      return alert("Форма отправлена");
+    }
   },
   computed: {
-    isDisabled: function() {
+    isDisabled() {
       return this.username === null
-      ||this.textarea===null
-      ||this.url===null
-      ||!this.modelNumber
+          || this.textarea === null
+          || !this.isValidUrl
+          || !this.modelNumber
 
+    },
+
+    isValidUrl() {
+      if (this.url) {
+        return this.url.match(regexUrl)
+      } else {
+        return false
+      }
     },
 
 
@@ -155,7 +163,4 @@ export default {
 
 }
 </script>
-
-<style scoped>
-
-</style>
+<style scoped></style>
