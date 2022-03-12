@@ -1,93 +1,62 @@
-a {
-  text-decoration: none;
-  color: #000000;
-}
-
-a:hover {
-  color: $clr-disabled;
-}
 
 
-.dropdown {
-  z-index: 11;
-  display: inline-block;
-  position: relative;
-  margin-right: 70px;
-  background: #FFFEFB;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-}
-
-.dd-button {
-  display: inline-block;
-  border: none;
-  border-radius: 4px;
-  padding: 10px 30px 10px 20px;
-  background-color: #ffffff;
-  cursor: pointer;
-  white-space: nowrap;
-  color: $clr-disabled;
-}
-
-.dd-button:after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid $clr-disabled;
-}
-
-.dd-button:hover {
-  background-color: #eeeeee;
-}
-
-
-.dd-input {
-  display: none;
-}
-
-.dd-menu {
-  position: absolute;
-  top: 100%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 0;
-  margin: 2px 0 0 0;
-  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
-  list-style-type: none;
-}
-
-.dd-input + .dd-menu {
-  display: none;
-}
-
-.dd-input:checked + .dd-menu {
-  display: block;
-}
-
-.dd-menu li {
-  padding: 10px 20px;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.dd-menu li:hover {
-  background-color: #f6f6f6;
-}
-
-.dd-menu li a {
-  display: block;
-  margin: -10px -20px;
-  padding: 10px 20px;
-}
-
-.dd-menu li.divider {
-  padding: 0;
-  border-bottom: 1px solid #cccccc;
+.aselect {
+  width: 121.49px;
+  margin: 20px auto;
+  :hover{
+    background-color: #e5e5e5;
+  }
+  .selector {
+    border: 1px solid gainsboro;
+    background: #ffffff;
+    position: relative;
+    z-index: 1;
+    .arrow {
+      position: absolute;
+      right: 10px;
+      top: 35%;
+      width: 4.59px;
+      height: 4.59px;
+      border-right: 1px solid  #888;
+      border-bottom:  1px solid #888;
+      transform: rotateZ(45deg) translateY(0px);
+      transition-duration: 0.3s;
+      transition-timing-function: cubic-bezier(.59,1.39,.37,1.01);
+    }
+    .expanded {
+      transform: rotateZ(225deg) translateY(-4px) translateX(-2px);
+    }
+    .label {
+      display: block;
+      padding: 12px;
+      color: #888;
+    }
+  }
+  ul {
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid gainsboro;
+    position: absolute;
+    z-index: 1;
+    background: #fff;
+  }
+  li {
+    padding: 12px;
+    color: #666;
+    &:hover {
+      color: white;
+      background: #d5ba91;
+    }
+  }
+  .current {
+    background: #c0bfbf;
+  }
+  .hidden {
+    visibility: hidden;
+  }
+  .visible {
+    visibility: visible;
+  }
 }

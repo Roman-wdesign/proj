@@ -130,8 +130,8 @@ export default {
       this.username = null;
       this.textarea = null;
       this.url = null;
-      this.number= null;
-      this.realNumber= null;
+      this.number = null;
+      this.realNumber = null;
       this.indicatorChange = true;
 
       return alert("Форма отправлена");
