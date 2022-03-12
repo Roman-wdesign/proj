@@ -28,3 +28,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
    + changing submit button color, after user enter all fields
    + Regex for Url input
    + Form reset
+#### Dropdown 
+   + click on empty to close
+   + animated css chevron
