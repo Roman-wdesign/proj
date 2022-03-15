@@ -15,16 +15,18 @@ html {
 }
 
 .container {
+  padding: 32px;
+  margin: 0 auto;
   width: 1440px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   text-align: left;
-  //padding: 0 2rem 0 2rem;
+
 }
 
 .core {
-  padding: 16px;
+
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -41,6 +43,8 @@ h2 {
 }
 
 .header {
+  margin-bottom: 16px;
+  padding: 0 8px;
   display: flex;
   flex-direction: row;
   align-items: center;
