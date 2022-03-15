@@ -1,29 +1,33 @@
+
 @import "vars";
 @import "fonts";
 @import "mixins";
 
-@import "./modules/form.scss";
-@import "./modules/product.scss";
-@import "./modules/dropdown.scss";
-@import "./modules/delete.scss";
-@import "./modules/validation.scss";
+@import "./modules/reset";
+@import "./modules/form";
+@import "./modules/product";
+@import "./modules/dropdown";
+@import "./modules/delete";
+@import "./modules/validation";
 
 html {
   font-size: 62.5%;
 }
 
 .container {
+  width: 1440px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: left;
-  padding: 0 2rem 0 2rem;
+  //padding: 0 2rem 0 2rem;
 }
 
 .core {
+  padding: 16px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   //background-color: antiquewhite;
 }
 

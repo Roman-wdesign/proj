@@ -29,5 +29,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
    + Regex for Url input
    + Form reset
 #### Dropdown 
-   + click on empty to close
+   + click on empty to close 
    + animated css chevron

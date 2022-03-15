@@ -12,7 +12,7 @@
     </div>
 
     <div class="product">
-      <div class="about__img"><img src="@/assets/img/photo.png" height="200" width="100%"></div>
+      <div class="about__img"><img src="@/assets/img/photo.png"></div>
       <div class="about">
         <div class="about__header">{{ product_data.header }}</div>
         <div class="about__description">{{ product_data.description }}</div>

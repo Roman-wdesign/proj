@@ -1,13 +1,17 @@
 
 
 .aselect {
+  //padding: 5px;
   width: 121.49px;
-  margin: 20px auto;
+  margin: 0px auto;
+
   :hover{
     background-color: #e5e5e5;
   }
   .selector {
-    border: 1px solid gainsboro;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    border:none;
     background: #ffffff;
     position: relative;
     z-index: 1;
