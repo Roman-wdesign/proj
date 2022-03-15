@@ -79,7 +79,7 @@
               :type="indicatorChange ? 'number' : 'text'"
               v-model="modelNumber"
               step="1" min="1" max="100000000"
-              placeholder=" Введите цену"
+              placeholder="Введите цену"
               @focus="indicatorChange = true"
               @blur="indicatorChange = false"
               class="input"
@@ -96,7 +96,7 @@
             :disabled='isDisabled'
             class="btn_form"
             type="submit"
-            @click="submitForm()"
+            @click="resetForm()"
         >Добавить товар
         </button>
       </div>
@@ -125,7 +125,7 @@ export default {
   }),
 
   methods: {
-    submitForm() {
+    resetForm() {
 
       this.username = null;
       this.textarea = null;
