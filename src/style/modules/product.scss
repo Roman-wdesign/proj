@@ -1,15 +1,17 @@
 .prod_main {
-  margin: 6px ;
+  margin: 6px;
   width: 332px;
   height: 423px;
 
   border-radius: 4px;
+
   &:hover .wrap {
     display: block;
   }
 
   position: relative;
 }
+
 .product {
   @include prod_shadow;
 
@@ -29,11 +31,10 @@
 
 
 .about {
-
+  align-items: stretch;
   display: flex;
   flex-direction: column;
   text-align: left;
-  justify-content: space-between;
   padding: 0 16px 16px 24px;
 
   &__img {
@@ -48,6 +49,7 @@
   }
 
   &__description {
+    padding: 16px 0 32px 0;
     @include ff_Sans_400;
   }
 
