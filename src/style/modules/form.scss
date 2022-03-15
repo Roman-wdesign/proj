@@ -1,7 +1,10 @@
 .form {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
   @include form_shadow;
   border-radius: 4px;
-  //width: 100% !important;
+  //width: 100% ;
   max-width: 332px;
   height: 100%;
   padding:  24px;
