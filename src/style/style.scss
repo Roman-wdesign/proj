@@ -15,6 +15,15 @@ html {
 }
 
 .container {
+  @media (max-width: 576px) {
+    margin: 0 auto;
+    padding: 32px;
+    width: 570px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  }
   padding: 32px;
   margin: 0 auto;
   width: 1440px;
@@ -26,7 +35,12 @@ html {
 }
 
 .core {
-
+  @media (max-width: 576px){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -43,7 +57,10 @@ h2 {
 }
 
 .header {
-
+  @media (max-width: 576px){
+    display: flex;
+    flex-direction:column;
+  }
   margin-bottom: 16px;
   padding: 0 8px;
   display: flex;

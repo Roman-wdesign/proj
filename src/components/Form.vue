@@ -134,7 +134,7 @@ export default {
       this.realNumber = null;
       this.indicatorChange = true;
 
-      return alert("Форма отправлена");
+      return alert("Товар был добавлен в список");
     }
   },
   computed: {

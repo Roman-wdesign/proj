@@ -1,4 +1,8 @@
 .prod_main {
+  @media (max-width: 576px){
+    margin-bottom: 2rem;
+  }
+
   margin: 6px;
   width: 332px;
   height: 423px;
@@ -60,6 +64,11 @@
 
 
 .product-list {
+  @media (max-width: 576px){
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+  }
   display: flex;
   //justify-content: center;
   flex-direction: row;

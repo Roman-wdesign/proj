@@ -1,4 +1,9 @@
 .form {
+  @media (max-width: 576px){
+    position:relative;
+    margin-bottom: 5rem;
+
+  }
   position: sticky;
   position: -webkit-sticky;
   top: 0;
