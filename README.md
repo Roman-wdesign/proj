@@ -31,3 +31,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 #### Dropdown 
    + click on empty to close 
    + animated css chevron
+#### Mobile first example

@@ -14,9 +14,9 @@
     <div class="product">
       <div class="about__img"><img src="@/assets/img/photo.png"></div>
       <div class="about">
-        <div class="about__header">{{ product_data.header }}</div>
-        <div class="about__description">{{ product_data.description }}</div>
-        <div class="about__price">{{ product_data.price }}</div>
+        <div class="about__header">{{ product_data.username }}</div>
+        <div class="about__description">{{ product_data.textarea }}</div>
+        <div class="about__price">{{ product_data.number }}</div>
       </div>
     </div>
   </div>
