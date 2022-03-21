@@ -63,13 +63,15 @@ const state = {
     ]
 }
 const mutations = {
-
-
+    ADD_TO_LIST:(state, product)=>{
+    state.products.push(product)
+}
 }
 const getters = {
     PRODUCTS(state){
        return state.products
-    }
+    },
+
 }
 
 

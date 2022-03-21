@@ -1,9 +1,9 @@
 <template>
   <div class="product-list">
     <mcv-product
-        v-for="product in PRODUCTS"
+        v-for="(product, index) in PRODUCTS"
         :product_data="product"
-        :key="product.id"
+        :key="index"
     ></mcv-product>
   </div>
 </template>
@@ -15,9 +15,7 @@ import McvProduct from "@/components/Product";
 export default {
   name: "McvProductList",
   components: {McvProduct},
-  data: () => ({
-
-  }),
+  data: () => ({}),
   computed: {
     ...mapGetters ([
         'PRODUCTS'

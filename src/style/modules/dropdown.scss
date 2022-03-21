@@ -1,41 +1,45 @@
 
-
 .aselect {
   //padding: 5px;
   width: 121.49px;
   margin: 0px auto;
 
-  :hover{
+  :hover {
     background-color: #e5e5e5;
   }
+
   .selector {
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
-    border:none;
+    border: none;
     background: #ffffff;
     position: relative;
     z-index: 1;
+
     .arrow {
       position: absolute;
       right: 10px;
       top: 35%;
       width: 4.59px;
       height: 4.59px;
-      border-right: 1px solid  #888;
-      border-bottom:  1px solid #888;
+      border-right: 1px solid #888;
+      border-bottom: 1px solid #888;
       transform: rotateZ(45deg) translateY(0px);
       transition-duration: 0.3s;
-      transition-timing-function: cubic-bezier(.59,1.39,.37,1.01);
+      transition-timing-function: cubic-bezier(.59, 1.39, .37, 1.01);
     }
+
     .expanded {
       transform: rotateZ(225deg) translateY(-4px) translateX(-2px);
     }
+
     .label {
       display: block;
       padding: 12px;
       color: #888;
     }
   }
+
   ul {
     width: 100%;
     list-style-type: none;
@@ -46,20 +50,25 @@
     z-index: 1;
     background: #fff;
   }
+
   li {
     padding: 12px;
     color: #666;
+
     &:hover {
       color: white;
       background: #d5ba91;
     }
   }
+
   .current {
     background: #c0bfbf;
   }
+
   .hidden {
     visibility: hidden;
   }
+
   .visible {
     visibility: visible;
   }

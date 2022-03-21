@@ -78,7 +78,7 @@
               :class="{error_input: !this.modelNumber}"
               :type="indicatorChange ? 'number' : 'text'"
               v-model="modelNumber"
-              step="1" min="1" max="100000000"
+              step="1" min="2" max="100000000"
               placeholder="Введите цену"
               @focus="indicatorChange = true"
               @blur="indicatorChange = false"
@@ -96,7 +96,7 @@
             :disabled='isDisabled'
             class="btn_form"
             type="submit"
-            @click="resetForm()"
+            @click="addToList(), resetForm()"
         >Добавить товар
         </button>
       </div>
@@ -110,7 +110,7 @@
 const regex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
 
 const regexUrl = new RegExp(regex);
-
+import {mapGetters, mapMutations} from 'vuex';
 
 export default {
   name: "McvForm",
@@ -121,10 +121,16 @@ export default {
     url: null,
     number: null,
     realNumber: null,
-    indicatorChange: false,
+    indicatorChange: false
   }),
 
   methods: {
+    ...mapMutations([
+      'ADD_TO_LIST'
+    ]),
+    addToList(product) {
+      this.ADD_TO_LIST(product);
+    },
     resetForm() {
 
       this.username = null;
@@ -138,6 +144,9 @@ export default {
     }
   },
   computed: {
+    ...mapGetters([
+      'PRODUCTS'
+    ]),
     isDisabled() {
       return this.username === null
           || this.textarea === null
