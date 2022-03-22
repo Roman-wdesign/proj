@@ -2,7 +2,7 @@
   <div class="form">
     <form
         id="app"
-        @submit.prevent="addToList(); isDisabled"
+        @submit.prevent="addToList; isDisabled"
         novalidate
     >
       <div class="prod-form">
@@ -18,7 +18,7 @@
 
           <input
               :class="{error_input: !username}"
-              type="text" v-model.trim="username"
+              type="text" v-model.lazy.trim="username"
               placeholder=" Введите наименование товара"
               class="input">
           <p
@@ -77,7 +77,7 @@
           <input
               :class="{error_input: !this.modelNumber}"
               :type="indicatorChange ? 'number' : 'text'"
-              v-model="modelNumber"
+              v-model.trim="modelNumber"
               step="1" min="2" max="100000000"
               placeholder="Введите цену"
               @focus="indicatorChange = true"
@@ -130,7 +130,7 @@ export default {
       'ADD_TO_LIST'
     ]),
     addToList(product) {
-      console.log( '%c form submitted ', 'color: #D7953FFF;')
+      console.log('%c form submitted ', 'color: #D7953FFF;')
       this.ADD_TO_LIST(product);
     },
     resetForm() {
