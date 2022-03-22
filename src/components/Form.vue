@@ -96,7 +96,7 @@
             :disabled='isDisabled'
             class="btn_form"
             type="submit"
-            @click="addToList(), resetForm()"
+            @click="addToList(); resetForm()"
         >Добавить товар
         </button>
       </div>
@@ -132,7 +132,7 @@ export default {
       this.ADD_TO_LIST(product);
     },
     resetForm() {
-
+      // this.$emit('ADD_TO_LIST', this.product_data);
       this.username = null;
       this.textarea = null;
       this.url = null;
