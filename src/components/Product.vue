@@ -35,8 +35,8 @@ export default {
       default() {
         return {}
       }
-    },
-  },
+    }
+  }
 }
 </script>
 

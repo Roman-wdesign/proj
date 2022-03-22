@@ -2,7 +2,7 @@
   <div class="form">
     <form
         id="app"
-        @submit.prevent="isDisabled"
+        @submit.prevent="addToList(); isDisabled"
         novalidate
     >
       <div class="prod-form">
@@ -18,7 +18,7 @@
 
           <input
               :class="{error_input: !username}"
-              type="text" v-model="username"
+              type="text" v-model.trim="username"
               placeholder=" Введите наименование товара"
               class="input">
           <p
@@ -124,11 +124,13 @@ export default {
     indicatorChange: false
   }),
 
+
   methods: {
     ...mapMutations([
       'ADD_TO_LIST'
     ]),
     addToList(product) {
+      console.log( '%c form submitted ', 'color: #D7953FFF;')
       this.ADD_TO_LIST(product);
     },
     resetForm() {
