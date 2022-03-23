@@ -1,7 +1,7 @@
 .error_mess{
   margin-top: 4px;
-color:$clr-form-error;
-@include error-mess;
+  color: $clr-form-error;
+  @include error-mess;
 }
 
 .error_input{
@@ -9,3 +9,6 @@ color:$clr-form-error;
   border: 1px solid $clr-form-error;
 }
 
+.success{
+  border: 1px solid #8cff84;
+}
