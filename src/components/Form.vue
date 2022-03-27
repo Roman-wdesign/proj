@@ -36,10 +36,12 @@
           </div>
 
           <textarea
+              maxlength="200"
               :class="[{error_input: !this.textarea}, {success:this.textarea}]"
               class=textarea
               v-model="textarea"
-              placeholder=" Введите описание товара"></textarea>
+              placeholder=" Введите описание товара"
+          ></textarea>
           <p
               :class="{error_mess: !this.textarea}"
               v-if="!this.textarea">
@@ -138,7 +140,6 @@ export default {
     },
 
     resetForm() {
-      this.$emit('ADD_TO_LIST', this.product_data);
 
       this.username = null;
       this.textarea = null;
