@@ -110,7 +110,6 @@
 const regex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
 
 const regexUrl = new RegExp(regex);
-import {mapMutations} from 'vuex';
 
 export default {
   name: "McvForm",
@@ -126,25 +125,27 @@ export default {
 
 
   methods: {
-    ...mapMutations([
-      'ADD_TO_LIST'
-    ]),
-    addToList() {
-      // this.$emit("add-to-list");
-      console.log('%c form submitted ', 'color: #D7953FFF;', this.username, this.textarea, this.url, this.modelNumber)
-      this.$store.commit('ADD_TO_LIST', {
-         username:this.username
-       });
-    },
-    resetForm() {
-      // this.$emit('ADD_TO_LIST', this.product_data);
 
-      // this.username = null;
-      // this.textarea = null;
-      // this.url = null;
-      // this.number = null;
-      // this.realNumber = null;
-      // this.indicatorChange = true;
+    addToList() {
+      // send data to our list
+      console.log('%c form submitted ', 'color: #D7953FFF;', this.username, this.textarea, this.url, this.modelNumber)
+
+      this.$store.commit('ADD_TO_LIST', {
+        username: this.username,
+        textarea: this.textarea,
+        number: this.modelNumber
+      });
+    },
+
+    resetForm() {
+      this.$emit('ADD_TO_LIST', this.product_data);
+
+      this.username = null;
+      this.textarea = null;
+      this.url = null;
+      this.number = null;
+      this.realNumber = null;
+      this.indicatorChange = true;
 
       return alert("Товар был добавлен в список");
     }

@@ -32,3 +32,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
    + click on empty to close 
    + animated css chevron
 #### Mobile first example
+#### Send data from Form to List
