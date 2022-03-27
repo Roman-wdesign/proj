@@ -17,13 +17,13 @@
 
 
           <input
-              :class="{error_input: !username}"
-              type="text" v-model.lazy.trim="username"
+              :class="[{error_input: !this.username}, {success:this.username}]"
+              type="text" v-model.trim="username"
               placeholder=" Введите наименование товара"
               class="input">
           <p
-              :class="{error_mess: !username}"
-              v-if="!username">
+              :class="{error_mess: !this.username}"
+              v-if="!this.username">
             Поле является обязательным
           </p>
         </div>
@@ -36,7 +36,7 @@
           </div>
 
           <textarea
-              :class="{error_input: !this.textarea}"
+              :class="[{error_input: !this.textarea}, {success:this.textarea}]"
               class=textarea
               v-model="textarea"
               placeholder=" Введите описание товара"></textarea>
@@ -55,7 +55,7 @@
           </div>
 
           <input
-              :class="{error_input: !this.isValidUrl}"
+              :class="[{error_input: !this.isValidUrl}, {success:this.isValidUrl}]"
               type="url"
               v-model="url"
               placeholder="Введите ссылку"
@@ -75,7 +75,7 @@
           </div>
 
           <input
-              :class="{error_input: !this.modelNumber}"
+              :class="[{error_input: !this.modelNumber}, {success:this.modelNumber}]"
               :type="indicatorChange ? 'number' : 'text'"
               v-model.trim="modelNumber"
               step="1" min="2" max="100000000"
@@ -110,7 +110,7 @@
 const regex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
 
 const regexUrl = new RegExp(regex);
-import {mapGetters, mapMutations} from 'vuex';
+import {mapMutations} from 'vuex';
 
 export default {
   name: "McvForm",
@@ -129,26 +129,27 @@ export default {
     ...mapMutations([
       'ADD_TO_LIST'
     ]),
-    addToList(product) {
-      console.log('%c form submitted ', 'color: #D7953FFF;')
-      this.ADD_TO_LIST(product);
+    addToList() {
+      // this.$emit("add-to-list");
+      console.log('%c form submitted ', 'color: #D7953FFF;', this.username, this.textarea, this.url, this.modelNumber)
+      this.$store.commit('ADD_TO_LIST', {
+         username:this.username
+       });
     },
     resetForm() {
       // this.$emit('ADD_TO_LIST', this.product_data);
-      this.username = null;
-      this.textarea = null;
-      this.url = null;
-      this.number = null;
-      this.realNumber = null;
-      this.indicatorChange = true;
+
+      // this.username = null;
+      // this.textarea = null;
+      // this.url = null;
+      // this.number = null;
+      // this.realNumber = null;
+      // this.indicatorChange = true;
 
       return alert("Товар был добавлен в список");
     }
   },
   computed: {
-    ...mapGetters([
-      'PRODUCTS'
-    ]),
     isDisabled() {
       return this.username === null
           || this.textarea === null
