@@ -17,6 +17,7 @@
 
 
           <input
+              maxlength="50"
               :class="[{error_input: !this.username}, {success:this.username}]"
               type="text" v-model.trim="username"
               placeholder=" Введите наименование товара"
@@ -175,7 +176,6 @@ export default {
       },
       set(value) {
         this.realNumber = +value.replace(/\s/g, "")
-        this.$emit('input', this.realNumber)
       },
     },
   },

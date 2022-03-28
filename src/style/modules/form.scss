@@ -51,6 +51,7 @@
 }
 
 .input {
+
   width: 284px;
   height: 36px;
 
@@ -74,12 +75,12 @@
 .btn_form {
   @include form_btn;
   background: $clr-disabled-btn;
-  color: $clr-disabled;;
+  color: $clr-disabled;
 
 
   &:hover {
-    background: $clr-disabled;
-    color: $clr-disabled-btn;
+    background: $clr-disabled-btn;
+    color: $clr-disabled;
     transition-duration: .5s;
     transition-delay: .1s;
   }
