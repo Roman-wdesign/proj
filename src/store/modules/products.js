@@ -67,7 +67,6 @@ const mutations = {
         state.products.push(product)
     },
     REMOVE_FROM_LIST: (state,index) => {
-      //this.state.products.splice(index, 1)
        state.products.splice(index, 1)
     },
 }
