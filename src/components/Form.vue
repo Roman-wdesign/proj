@@ -22,11 +22,14 @@
               type="text" v-model.trim="username"
               placeholder=" Введите наименование товара"
               class="input">
-          <p
-              :class="{error_mess: !this.username}"
-              v-if="!this.username">
-            Поле является обязательным
-          </p>
+          <transition name="fade">
+            <p
+                :class="{error_mess: !this.username}"
+                v-if="!this.username">
+              Поле является обязательным
+            </p>
+          </transition>
+
         </div>
 
         <div class="prod-form__block">
@@ -43,11 +46,13 @@
               v-model="textarea"
               placeholder=" Введите описание товара"
           ></textarea>
-          <p
-              :class="{error_mess: !this.textarea}"
-              v-if="!this.textarea">
-            Поле является обязательным
-          </p>
+          <transition name="fade">
+            <p
+                :class="{error_mess: !this.textarea}"
+                v-if="!this.textarea">
+              Поле является обязательным
+            </p>
+          </transition>
         </div>
 
         <div class="prod-form__block">
@@ -63,11 +68,13 @@
               v-model="url"
               placeholder="Введите ссылку"
               class="input">
-          <p
-              :class="{error_mess: !this.isValidUrl}"
-              v-if="!this.isValidUrl">
-            Поле является обязательным
-          </p>
+          <transition name="fade">
+            <p
+                :class="{error_mess: !this.isValidUrl}"
+                v-if="!this.isValidUrl">
+              Поле является обязательным
+            </p>
+          </transition>
         </div>
 
         <div class="prod-form__block">
@@ -87,11 +94,14 @@
               @blur="indicatorChange = false"
               class="input"
           >
-          <p
-              :class="{error_mess: !this.modelNumber}"
-              v-if="!this.modelNumber">
-            Поле является обязательным
-          </p>
+          <transition name="fade">
+            <p
+                :class="{error_mess: !this.modelNumber}"
+                v-if="!this.modelNumber">
+              Поле является обязательным
+            </p>
+          </transition>
+
         </div>
 
         <button
@@ -123,7 +133,7 @@ export default {
     url: null,
     number: null,
     realNumber: null,
-    indicatorChange: false
+    indicatorChange: false,
   }),
 
 

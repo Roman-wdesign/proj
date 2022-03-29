@@ -1,8 +1,7 @@
 <template>
   <div class="prod_main">
-
     <div class="wrap">
-      <div
+      <button
           @click="deleteFromList"
           class="delete"
       >
@@ -11,9 +10,8 @@
           <div class="delete_ico"></div>
         </div>
 
-      </div>
+      </button>
     </div>
-
     <div class="product">
       <div class="about__img"><img src="@/assets/img/photo.png"></div>
       <div class="about">
