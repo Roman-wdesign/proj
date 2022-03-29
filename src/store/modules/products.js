@@ -63,13 +63,18 @@ const state = {
     ]
 }
 const mutations = {
-    ADD_TO_LIST:(state, product)=>{
-    state.products.push(product)
+    ADD_TO_LIST: (state, product) => {
+        state.products.push(product)
+    },
+    REMOVE_FROM_LIST: (state,index) => {
+      //this.state.products.splice(index, 1)
+       state.products.splice(index, 1)
+    },
 }
-}
+
 const getters = {
-    PRODUCTS(state){
-       return state.products
+    PRODUCTS(state) {
+        return state.products
     },
 
 }

@@ -2,7 +2,10 @@
   <div class="prod_main">
 
     <div class="wrap">
-      <div class="delete">
+      <div
+          @click="deleteFromList"
+          class="delete"
+      >
 
         <div class="delete_body">
           <div class="delete_ico"></div>
@@ -29,6 +32,11 @@ export default {
   name: "McvProduct",
   components: {},
   data: () => ({}),
+  methods: {
+    deleteFromList() {
+      this.$emit('deleteFromList')
+    }
+  },
   props: {
     product_data: {
       type: Object,
