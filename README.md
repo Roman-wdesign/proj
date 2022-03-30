@@ -34,3 +34,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 #### Mobile first example
 #### Send data from Form to List
 #### Named slot (Header)
+#### Mixin validationForm
