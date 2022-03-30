@@ -33,3 +33,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
    + animated css chevron
 #### Mobile first example
 #### Send data from Form to List
+#### Named slot (Header)
