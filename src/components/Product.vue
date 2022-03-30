@@ -5,7 +5,6 @@
           @click="deleteFromList"
           class="delete"
       >
-
         <div class="delete_body">
           <div class="delete_ico"></div>
         </div>

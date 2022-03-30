@@ -1,11 +1,11 @@
 <template>
   <div class="product-list">
-    <mcv-product
-        v-for="(product, index) in PRODUCTS"
-        :product_data="product"
-        :key="index"
-        @deleteFromList="deleteFromList(index)"
-    ></mcv-product>
+      <mcv-product
+          v-for="(product, index) in PRODUCTS"
+          :product_data="product"
+          :key="index"
+          @deleteFromList="deleteFromList(index)"
+      ></mcv-product>
   </div>
 </template>
 
@@ -22,12 +22,12 @@ export default {
       'REMOVE_FROM_LIST'
     ]),
     deleteFromList(index) {
-       this.$store.commit('REMOVE_FROM_LIST', index)
+      this.$store.commit('REMOVE_FROM_LIST', index)
     }
   },
   computed: {
-    ...mapGetters ([
-        'PRODUCTS'
+    ...mapGetters([
+      'PRODUCTS'
     ])
   },
 }

@@ -1,7 +1,12 @@
 <template>
   <div class="container">
     <div class="header">
-      <h1>Добавление товара</h1>
+      <!--     naming slot mcv-header-->
+      <mcv-header>
+        <template v-slot:content>
+          <h1>{{ headerMessage }}</h1>
+        </template>
+      </mcv-header>
       <mcv-dropdown/>
     </div>
 
@@ -16,9 +21,13 @@
 import McvForm from "@/components/Form";
 import McvProductList from "@/components/ProductList";
 import McvDropdown from "@/components/Dropdown";
+import McvHeader from "@/components/Header";
 
 export default {
   name: 'Home',
-  components: {McvDropdown, McvProductList, McvForm}
+  components: {McvHeader, McvDropdown, McvProductList, McvForm},
+  data: () => ({
+    headerMessage: 'Добавление товара'
+  }),
 }
 </script>
