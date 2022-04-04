@@ -22,7 +22,7 @@ export default {
       'REMOVE_FROM_LIST'
     ]),
     deleteFromList(index) {
-      this.$store.commit('REMOVE_FROM_LIST', index)
+      this.$store.commit('[products] REMOVE_FROM_LIST', index)
     }
   },
   computed: {

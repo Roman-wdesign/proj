@@ -62,11 +62,16 @@ const state = {
         },
     ]
 }
+
+export const mutationTypes = {
+    ADD_TO_LIST:'[products] ADD_TO_LIST',
+    REMOVE_FROM_LIST:'[products] REMOVE_FROM_LIST'
+}
 const mutations = {
-    ADD_TO_LIST: (state, product) => {
+    [mutationTypes.ADD_TO_LIST]: (state, product) => {
         state.products.push(product)
     },
-    REMOVE_FROM_LIST: (state,index) => {
+    [mutationTypes.REMOVE_FROM_LIST]: (state,index) => {
        state.products.splice(index, 1)
     },
 }
@@ -75,8 +80,8 @@ const getters = {
     PRODUCTS(state) {
         return state.products
     },
-
 }
+
 
 
 export default {

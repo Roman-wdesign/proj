@@ -139,7 +139,7 @@ export default {
       // send data to our list
       console.log('%c form submitted ', 'color: #D7953FFF;', this.username, this.textarea, this.url, this.modelNumber)
 
-      this.$store.commit('ADD_TO_LIST', {
+      this.$store.commit('[products] ADD_TO_LIST', {
         username: this.username,
         textarea: this.textarea,
         number: this.modelNumber
