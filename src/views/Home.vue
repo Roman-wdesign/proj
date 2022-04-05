@@ -21,7 +21,7 @@
 import McvForm from "@/components/Form";
 import McvProductList from "@/components/ProductList";
 import McvDropdown from "@/components/Dropdown";
-import McvHeader from "@/components/Header";
+import McvHeader from "@/components/slot/Header";
 
 export default {
   name: 'Home',
