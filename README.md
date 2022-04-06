@@ -35,3 +35,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 #### Send data from Form to List
 #### Named slot (Header)
 #### Mixin validationForm
+#### localStorage (VueX)

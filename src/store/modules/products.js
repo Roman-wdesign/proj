@@ -2,7 +2,7 @@ import {saveState, loadState} from "@/helpers/persistanceStorage";
 
 
 const state = {
-    products:  loadState() ||  [
+    products: loadState() || [
         {
             id: 1,
             username: 'Наименование товара',
@@ -67,16 +67,16 @@ const state = {
 }
 
 export const mutationTypes = {
-    ADD_TO_LIST:'[products] ADD_TO_LIST',
-    REMOVE_FROM_LIST:'[products] REMOVE_FROM_LIST'
+    ADD_TO_LIST: '[products] ADD_TO_LIST',
+    REMOVE_FROM_LIST: '[products] REMOVE_FROM_LIST'
 }
 const mutations = {
     [mutationTypes.ADD_TO_LIST]: (state, product) => {
         state.products.push(product)
         saveState(state.products);
     },
-    [mutationTypes.REMOVE_FROM_LIST]: (state,index) => {
-       state.products.splice(index, 1)
+    [mutationTypes.REMOVE_FROM_LIST]: (state, index) => {
+        state.products.splice(index, 1)
         saveState(state.products);
     },
 }
@@ -86,7 +86,6 @@ const getters = {
         return state.products
     },
 }
-
 
 
 export default {
