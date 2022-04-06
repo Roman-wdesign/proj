@@ -1,5 +1,8 @@
+import {saveState, loadState} from "@/helpers/persistanceStorage";
+
+
 const state = {
-    products: [
+    products:  loadState() ||  [
         {
             id: 1,
             username: 'Наименование товара',
@@ -70,9 +73,11 @@ export const mutationTypes = {
 const mutations = {
     [mutationTypes.ADD_TO_LIST]: (state, product) => {
         state.products.push(product)
+        saveState(state.products);
     },
     [mutationTypes.REMOVE_FROM_LIST]: (state,index) => {
        state.products.splice(index, 1)
+        saveState(state.products);
     },
 }
 
