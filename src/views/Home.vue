@@ -1,13 +1,18 @@
 <template>
   <div class="container">
     <div class="header">
-      <!--     naming slot mcv-header-->
+
       <mcv-header>
         <template v-slot:content>
           <h1>{{ headerMessage }}</h1>
         </template>
+
       </mcv-header>
-      <mcv-dropdown/>
+
+      <mcv-dropdown
+          :options="options"
+
+      />
     </div>
 
     <div class="core">
@@ -27,7 +32,21 @@ export default {
   name: 'Home',
   components: {McvHeader, McvDropdown, McvProductList, McvForm},
   data: () => ({
-    headerMessage: 'Добавление товара'
+    headerMessage: 'Добавление товара',
+    options: [
+      {name: 'min', value: 1},
+      {name: 'max', value: 1},
+      {name: 'default', value: 1},
+    ],
+    value: 'default'
   }),
+
+
+  methods: {
+    // optionSelect(option) {
+    //   this.value = option.name;
+    // }
+  },
+
 }
 </script>
