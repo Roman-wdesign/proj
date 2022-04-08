@@ -7,20 +7,20 @@ export default {
         username: null,
         textarea: null,
         url: null,
-        number: null,
-        realNumber: null,
+        price: null,
+        realPrice: null,
         indicatorChange: false,
     }),
     methods: {
 
         addToList() {
             // send data to our list
-            console.log('%c form submitted ', 'color: #D7953FFF;', this.username, this.textarea, this.url, this.modelNumber)
+            console.log('%c form submitted ', 'color: #D7953FFF;', this.username, this.textarea, this.url, this.modelPrice)
 
             this.$store.commit('[products] ADD_TO_LIST', {
                 username: this.username,
                 textarea: this.textarea,
-                number: this.modelNumber
+                price: this.modelPrice
             });
         },
 
@@ -29,8 +29,8 @@ export default {
             this.username = null;
             this.textarea = null;
             this.url = null;
-            this.number = null;
-            this.realNumber = null;
+            this.price = null;
+            this.realPrice = null;
             this.indicatorChange = true;
 
             return alert("Товар был добавлен в список");
@@ -41,7 +41,7 @@ export default {
             return this.username === null
                 || this.textarea === null
                 || !this.isValidUrl
-                || !this.modelNumber
+                || !this.modelPrice
 
         },
 
@@ -54,16 +54,16 @@ export default {
         },
 
 
-        modelNumber: {
+        modelPrice: {
             get() {
-                return this.indicatorChange ? this.realNumber : this.realNumber.toLocaleString()
+                return this.indicatorChange ? this.realPrice : this.realPrice.toLocaleString()
             },
             set(value) {
-                this.realNumber = +value.replace(/\s/g, "")
+                this.realPrice = +value.replace(/\s/g, "")
             },
         },
     },
     created() {
-        this.realNumber = this.value || ""
+        this.realPrice = this.value || ""
     },
 }

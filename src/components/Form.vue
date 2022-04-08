@@ -85,9 +85,9 @@
           </div>
 
           <input
-              :class="[{error_input: !this.modelNumber}, {success:this.modelNumber}]"
+              :class="[{error_input: !this.modelPrice}, {success:this.modelPrice}]"
               :type="indicatorChange ? 'number' : 'text'"
-              v-model.trim="modelNumber"
+              v-model.trim="modelPrice"
               step="1" min="2" max="100000000"
               placeholder="Введите цену"
               @focus="indicatorChange = true"
@@ -96,8 +96,8 @@
           >
           <transition name="fade">
             <p
-                :class="{error_mess: !this.modelNumber}"
-                v-if="!this.modelNumber">
+                :class="{error_mess: !this.modelPrice}"
+                v-if="!this.modelPrice">
               Поле является обязательным
             </p>
           </transition>
@@ -122,7 +122,7 @@ import validationForm from "@/components/mixins/validationForm";
 
 export default {
   name: "McvForm",
-  mixins:[validationForm]
+  mixins: [validationForm]
 }
 </script>
 <style scoped></style>
