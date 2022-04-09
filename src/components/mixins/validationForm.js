@@ -7,20 +7,20 @@ export default {
         username: null,
         textarea: null,
         url: null,
-        price: null,
-        realPrice: null,
+        number: null,
+        realNumber: null,
         indicatorChange: false,
     }),
     methods: {
 
         addToList() {
             // send data to our list
-            console.log('%c form submitted ', 'color: #D7953FFF;', this.username, this.textarea, this.url, this.modelPrice)
+            console.log('%c form submitted ', 'color: #D7953FFF;', this.username, this.textarea, this.url, this.modelNumber)
 
             this.$store.commit('[products] ADD_TO_LIST', {
                 username: this.username,
                 textarea: this.textarea,
-                price: this.modelPrice
+                number: this.modelNumber
             });
         },
 
@@ -29,8 +29,8 @@ export default {
             this.username = null;
             this.textarea = null;
             this.url = null;
-            this.price = null;
-            this.realPrice = null;
+            this.number = null;
+            this.realNumber = null;
             this.indicatorChange = true;
 
             return alert("Товар был добавлен в список");
@@ -41,7 +41,7 @@ export default {
             return this.username === null
                 || this.textarea === null
                 || !this.isValidUrl
-                || !this.modelPrice
+                || !this.modelNumber
 
         },
 
@@ -54,16 +54,16 @@ export default {
         },
 
 
-        modelPrice: {
+        modelNumber: {
             get() {
-                return this.indicatorChange ? this.realPrice : this.realPrice.toLocaleString()
+                return this.indicatorChange ? this.realNumber : this.realNumber.toLocaleString()
             },
             set(value) {
-                this.realPrice = +value.replace(/\s/g, "")
+                this.realNumber = +value.replace(/\s/g, "")
             },
         },
     },
     created() {
-        this.realPrice = this.value || ""
+        this.realNumber = this.value || ""
     },
 }
