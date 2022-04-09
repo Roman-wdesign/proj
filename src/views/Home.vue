@@ -11,7 +11,8 @@
 
       <mcv-dropdown
           :options="options"
-
+          :selected="selected"
+          @select="optionSelect"
       />
     </div>
 
@@ -35,17 +36,17 @@ export default {
     headerMessage: 'Добавление товара',
     options: [
       {name: 'min', value: 1},
-      {name: 'max', value: 1},
-      {name: 'default', value: 1},
+      {name: 'max', value: 2},
+      {name: 'default', value: 3},
     ],
-    value: 'default'
+     selected: 'default'
   }),
 
 
   methods: {
-    // optionSelect(option) {
-    //   this.value = option.name;
-    // }
+    optionSelect(option) {
+      this.selected = option.name;
+    }
   },
 
 }
