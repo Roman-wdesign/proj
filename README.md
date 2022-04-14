@@ -36,3 +36,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 #### Named slot (Header)
 #### Mixin validationForm
 #### localStorage (VueX)
+
+#### Vue tests
++ Truthy html elements in components
++ Event handling ($emit)
