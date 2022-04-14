@@ -39,15 +39,35 @@ export default {
       {name: 'max', value: 2},
       {name: 'default', value: 3},
     ],
-     selected: 'default'
+    selected: 'default',
+     sortedOptions: [],
   }),
 
 
   methods: {
     optionSelect(option) {
       this.selected = option.name;
-    }
-  },
+    },
+    // sortProducts(option) {
+    //   this.sortedOptions = []
+    //   this.PRODUCTS.sort(function (a,b) {
+    //     if (option.name === 'max') {
+    //       return parseFloat(a.number) - parseFloat(b.number)
+    //     }
+    //     let vm = this
+    //     vm.sortedOptions.push(a,b)
+    //   })
+    // },
 
+  },
+  computed: {
+    // filteredProducts() {
+    //   if (this.sortedOptions.length) {
+    //     return this.sortedOptions
+    //   } else {
+    //     return this.PRODUCTS
+    //   }
+    // }
+  },
 }
 </script>

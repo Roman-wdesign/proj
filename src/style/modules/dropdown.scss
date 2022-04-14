@@ -1,16 +1,16 @@
 
-.aselect {
+.dropdown {
   cursor:pointer;
   //padding: 5px;
   width: 121.49px;
-  margin: 0px auto;
+  margin: 0 auto;
 
   :hover {
     background-color: #e5e5e5;
   }
 
   .selector {
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     border: none;
     background: #ffffff;

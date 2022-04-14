@@ -1,11 +1,12 @@
 <template>
   <div class="product-list">
-      <mcv-product
-          v-for="(product, index) in PRODUCTS"
-          :product_data="product"
-          :key="index"
-          @deleteFromList="deleteFromList(index)"
-      ></mcv-product>
+
+    <mcv-product
+        v-for="(product, index) in PRODUCTS"
+        :product_data="product"
+        :key="index"
+        @deleteFromList="deleteFromList(index)"
+    ></mcv-product>
   </div>
 </template>
 
@@ -17,10 +18,12 @@ export default {
   name: "McvProductList",
   components: {McvProduct},
   data: () => ({}),
+
   methods: {
     ...mapMutations([
       'REMOVE_FROM_LIST'
     ]),
+
     deleteFromList(index) {
       this.$store.commit('[products] REMOVE_FROM_LIST', index)
     }
@@ -28,9 +31,8 @@ export default {
   computed: {
     ...mapGetters([
       'PRODUCTS'
-    ])
+    ]),
   },
-
 }
 </script>
 

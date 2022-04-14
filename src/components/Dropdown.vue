@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="aselect">
+    <div class="dropdown">
       <div class="selector box" @click="toggle()">
 
         <div class="label box">
@@ -30,12 +30,9 @@
       </div>
     </div>
   </div>
-
-
 </template>
 
 <script>
-
 
 export default {
   name: "McvDropdown",
